@@ -1,0 +1,5 @@
+applications:
+  - name: indian-spice
+    path: target/indian-spice-0.0.1-SNAPSHOT.jar
+    buildpacks:
+      - https://github.com/cloudfoundry/java-buildpack.git
