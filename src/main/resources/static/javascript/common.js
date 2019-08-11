@@ -78,6 +78,9 @@ $(document).ready(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
 
+    $('#regSubmit').click (function{
+        alert($('.form-control').val);
+    })
 
 });
 

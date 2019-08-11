@@ -1,23 +1,34 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.Login;
+import com.example.demo.entities.UserCatagory;
+import com.example.demo.entities.UserDetails;
+import com.example.demo.services.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+//@Controller
+@RestController
 public class WelcomeController {
 
-    @RequestMapping("/welcome")
-    public String loginMessage(){
-        return "welcome";
+    @Autowired
+    UserService userService;
+
+    @PostMapping("/register")
+    public String register(UserDetails user){
+        System.out.println(user.getFirstName());
+        return "null";
     }
 
-    @RequestMapping("/")
-    public String hh(){
-        return "index";
+    @RequestMapping("/userCatagory")
+    public Iterable<UserCatagory> hh(){
+        return userService.getUserCatagory();
     }
-    
-    @RequestMapping("/edit-todo")
-    public String editMessage(){
-        return "welcome";
+
+
+    @PostMapping("/login")
+    public String login(@RequestBody Login login){
+        return null;
     }
 }
