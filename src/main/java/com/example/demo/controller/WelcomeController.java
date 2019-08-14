@@ -5,6 +5,9 @@ import com.example.demo.entities.UserCatagory;
 import com.example.demo.entities.UserDetails;
 import com.example.demo.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +18,11 @@ public class WelcomeController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/register")
-    public String register(UserDetails user){
-        System.out.println(user.getFirstName());
-        return "null";
+    @PostMapping(value = "/register", consumes=MediaType.MULTIPART_FORM_DATA_VALUE )
+    public ResponseEntity<String> register(@ModelAttribute("multiPartsRequestPayload") UserDetails user){
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"+user.getFirstName());
+        long userId = userService.insertUser(user);
+        return new ResponseEntity<>(userId + "is created", HttpStatus.CREATED);
     }
 
     @RequestMapping("/userCatagory")
@@ -27,8 +31,9 @@ public class WelcomeController {
     }
 
 
-    @PostMapping("/login")
-    public String login(@RequestBody Login login){
-        return null;
+    @PostMapping(value = "/login", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public @ResponseBody
+    ResponseEntity<String> login(@RequestParam("email") String email, @RequestParam("password") String password) {
+        return new ResponseEntity<>("Created", HttpStatus.OK);
     }
 }
