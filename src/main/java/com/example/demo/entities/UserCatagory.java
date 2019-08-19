@@ -1,31 +1,32 @@
 package com.example.demo.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="USER_CATOGORY")
 public class UserCatagory {
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "CAT_ID")
-    private long catagoryId;
+    @Id @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "USR_CAT_ID")
+    private long userCatId;
 
-    @Column(name="CAT_NAME")
-    private String catagoryName;
+    @Column(name="USR_CAT_NAME")
+    private String userCatName;
 
-    public long getCatagoryId() {
-        return catagoryId;
+    public long getUserCatId() {
+        return userCatId;
     }
 
-    public void setCatagoryId(long catagoryId) {
-        this.catagoryId = catagoryId;
+    public void setUserCatId(long userCatId) {
+        this.userCatId = userCatId;
     }
 
-    public String getCatagoryName() {
-        return catagoryName;
+    public String getUserCatName() {
+        return userCatName;
     }
 
-    public void setCatagoryName(String catagoryName) {
-        this.catagoryName = catagoryName;
+    public void setUserCatName(String userCatName) {
+        this.userCatName = userCatName;
     }
 }

@@ -40,6 +40,8 @@ public class UserDetails {
     @Column(name="country")
     private String country;
 
+    @ManyToOne
+    private UserCatagory userCatId;
 
     public long getUserId() {
         return userId;
@@ -127,5 +129,13 @@ public class UserDetails {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public UserCatagory getUserCatId() {
+        return userCatId;
+    }
+
+    public void setUserCatId(UserCatagory userCatId) {
+        this.userCatId = userCatId;
     }
 }

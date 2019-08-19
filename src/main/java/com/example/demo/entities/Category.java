@@ -1,3 +1,4 @@
+
 package com.example.demo.entities;
 
 import org.hibernate.annotations.Type;
@@ -20,12 +21,15 @@ public class Category {
     @Column(name="CAT_DESC")
     private String catDesc;
 
-    /*@Type(type="org.hibernate.type.BinaryType")
-    @Column(name="IMAGE")
-    private byte[] image;*/
 
-    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
-    private Set<Product> products = new HashSet<Product>();*/
+    @Column(name="IMAGE")
+    private byte[] image;
+
+	/*
+	 * @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade =
+	 * CascadeType.ALL) private Set<Product> products = new HashSet<Product>();
+	 */
+
 
     public long getCatId() {
         return catId;
@@ -51,18 +55,21 @@ public class Category {
         this.catDesc = catDesc;
     }
 
-    /*public byte[] getImage() {
+  
+  public byte[] getImage() {
         return image;
     }
 
     public void setImage(byte[] image) {
         this.image = image;
-    }*/
-/*public Set<Product> getProducts() {
-        return products;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }*/
+
+	/*
+	 * public Set<Product> getProducts() { return products; }
+	 * 
+	 * public void setProducts(Set<Product> products) { this.products = products; }
+	 */
+
 }
+

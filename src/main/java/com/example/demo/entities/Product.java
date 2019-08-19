@@ -18,9 +18,11 @@ public class Product {
     @Column(name="Product_Description")
     private String productDescription;
 
-   /* @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CAT_ID", nullable = false)
-    private Category category;*/
+    private Category category;
+
 
     @Column(name="QNTY_PER_UNIT")
     private String quantityPerUnit;
@@ -28,9 +30,10 @@ public class Product {
     @Column(name="UNIT_PRICE")
     private String unitPrice;
 
-  /*  @
+
     @Column(name="IMAGE")
-    private byte[] image;*/
+    private byte[] image;
+
 
     public long getProductId() {
         return productId;
@@ -73,19 +76,24 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
-    /*public byte[] getImage() {
+ 
+    public byte[] getImage() {
         return image;
     }
 
     public void setImage(byte[] image) {
         this.image = image;
-    }*/
+    }
 
-   /* public Category getCategory() {
+
+
+ public Category getCategory() {
         return category;
     }
 
     public void setCategory(Category category) {
         this.category = category;
-    }*/
+    }
+
 }
+
